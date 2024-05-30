@@ -1,9 +1,9 @@
 // @ts-check
 import { parse as parseSvelte } from 'svelte/compiler'
 
-// https://github.com/sveltejs/svelte/blob/0b46c72cada210b3a6c72c30a51d35f5c4ccefb3/src/compiler/preprocess/index.ts#L146-L149
-const scriptRegex = /<script(\s[^]*?)?(?:>([^]*?)<\/script>|\/>)/gim
-const styleRegex = /<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gim
+// https://github.com/sveltejs/svelte/blob/0562bfe2dc42d2c34c8fc723aedde29192565d2a/packages/svelte/src/compiler/preprocess/index.js#L256-L259
+const scriptRegex = /<script((?:\s+[^=>'"/]+=(?:"[^"]*"|'[^']*'|[^>\s])|\s+[^=>'"/]+)*\s*)(?:\/>|>([\S\s]*?)<\/script>)/gim
+const styleRegex = /<style((?:\s+[^=>'"/]+=(?:"[^"]*"|'[^']*'|[^>\s])|\s+[^=>'"/]+)*\s*)(?:\/>|>([\S\s]*?)<\/style>)/gim
 const contextModuleRegex = /context\s*=\s*["']module["']/i
 
 // Use manual types here because TypeScript is unable to infer types for function overloads
